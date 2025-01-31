@@ -1,9 +1,11 @@
+import s from "./MovieCard.module.css";
+
 const MovieCard = ({ movie }) => {
   const { original_title, overview, poster_path, vote_average, genres } = movie;
 
   return (
-    <div>
-      <div>
+    <div className={s.movieCard}>
+      <div className={s.poster}>
         <img
           src={
             poster_path
@@ -11,9 +13,10 @@ const MovieCard = ({ movie }) => {
               : "/placeholder.jpg"
           }
           alt={original_title}
+          className={s.img}
         />
       </div>
-      <div>
+      <div className={s.description}>
         <h2>{original_title}</h2>
         <p>User Score: {Math.round(vote_average * 10)}%</p>
         <h3>Overview</h3>

@@ -1,0 +1,8 @@
+.text {
+  display: inline;
+  width: 100%;
+}
+.readOrHide {
+  color: #2609e5;
+  cursor: pointer;
+}

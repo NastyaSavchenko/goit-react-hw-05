@@ -3,6 +3,7 @@ import { useParams, NavLink, Outlet } from "react-router-dom";
 import { getMoviesDetails } from "../../services/takeApi";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import Loader from "../../components/Loader/Loader";
+import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -31,17 +32,30 @@ const MovieDetailsPage = () => {
   ) : (
     <div>
       <MovieCard movie={movie} />
-      <h3>Additional information</h3>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="cast">Cast</NavLink>
-          </li>
-          <li>
-            <NavLink to="reviews">Reviews</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <div className={s.info}>
+        <h3>Additional information</h3>
+        <nav>
+          <ul className={s.infoNav}>
+            <li>
+              <NavLink
+                to="cast"
+                className={({ isActive }) => (isActive ? s.active : s.link)}
+              >
+                Cast
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="reviews"
+                className={({ isActive }) => (isActive ? s.active : s.link)}
+              >
+                Reviews
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
       <Outlet />
     </div>
   );
