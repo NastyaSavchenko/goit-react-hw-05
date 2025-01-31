@@ -1,11 +1,10 @@
-import MovieCard from "../MovieCard/MovieCard";
+import MovieItem from "../MovieItem/MovieItem";
 
 const MoviesList = ({ movies }) => {
-  console.log(movies);
   return (
     <ul>
       {movies.map((movie) => {
-        return <MovieCard movie={movie} key={movie.id} />;
+        return <MovieItem movie={movie} key={movie.id} />;
       })}
     </ul>
   );
