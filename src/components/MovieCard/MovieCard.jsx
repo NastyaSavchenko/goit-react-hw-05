@@ -1,4 +1,5 @@
 import s from "./MovieCard.module.css";
+import notAvailable from "../../assets/img/notAvailable.jpg";
 
 const MovieCard = ({ movie }) => {
   const { original_title, overview, poster_path, vote_average, genres } = movie;
@@ -10,7 +11,7 @@ const MovieCard = ({ movie }) => {
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : "/placeholder.jpg"
+              : notAvailable
           }
           alt={original_title}
           className={s.img}

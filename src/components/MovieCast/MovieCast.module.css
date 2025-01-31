@@ -1,0 +1,7 @@
+.castImg {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
