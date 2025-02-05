@@ -1,5 +1,5 @@
 import s from "./MovieCard.module.css";
-import notAvailable from "../../assets/img/notAvailable.jpg";
+import notAvailable from "../../assets/img/notAvailable.png";
 
 const MovieCard = ({ movie }) => {
   const { original_title, overview, poster_path, vote_average, genres } = movie;
