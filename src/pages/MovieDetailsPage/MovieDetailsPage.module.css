@@ -18,3 +18,20 @@
 .active {
   color: blue;
 }
+
+.goBackBtn {
+  padding: 10px;
+  border-radius: 4px;
+  border: solid 1px #093ce5;
+  background-color: inherit;
+  outline: none;
+  color: #151414a2;
+  font-size: 16px;
+  height: 40px;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.goBackBtn:hover,
+.goBackBtn:focus {
+  box-shadow: 0px 0px 10px 1px #0923e5;
+}
