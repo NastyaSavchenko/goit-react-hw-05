@@ -1,19 +1,16 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 import { useState, useEffect, Suspense } from "react";
 import { getMoviesByName } from "../../services/takeApi.js";
 import SearchMovies from "../../components/SearchMovies/SearchMovies.jsx";
-import MoviesList from "../../components/MoviesList/MoviesList.jsx";
+import MovieList from "../../components/MovieList/MovieList.jsx";
 import Loader from "../../components/Loader/Loader.jsx";
 import toast from "react-hot-toast";
 
 const Movies = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryFromURL = searchParams.get("query") || "";
 
-  const fromQueryString =
-    new URLSearchParams(location.search).get("query") || "";
-
-  const [query, setQuery] = useState(fromQueryString);
+  const [query, setQuery] = useState(queryFromURL);
   const [moviesData, setMoviesData] = useState([]);
 
   const getQuery = (searchName) => {
@@ -23,7 +20,7 @@ const Movies = () => {
     }
 
     setQuery(searchName);
-    navigate(`?query=${searchName}`);
+    setSearchParams({ query: searchName });
   };
 
   useEffect(() => {
@@ -51,7 +48,7 @@ const Movies = () => {
   return (
     <main>
       <SearchMovies onSubmit={getQuery} />
-      {moviesData.length > 0 && <MoviesList movies={moviesData} />}
+      {moviesData.length > 0 && <MovieList movies={moviesData} />}
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
